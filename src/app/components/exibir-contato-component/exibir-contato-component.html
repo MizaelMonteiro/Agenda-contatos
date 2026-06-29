@@ -1,0 +1,27 @@
+
+<table class="table  table-striped-rows">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Telefone</th>
+                <th>Email</th>
+                <th>Aniversário</th>
+                <th>Tipo</th>
+                <th> </th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (contato of contatos; track contato){
+
+            
+            <tr>
+                <td>{{ contato.nome }}</td>
+                <td>{{ contato.telefone }}</td>
+                <td>{{ contato.email }}</td>
+                <td>{{ contato.aniversario }}</td>
+                <td>{{ contato.tipo }}</td>
+                <td><button class="btn btn-danger" (click)="remover(contato)">Remover</button></td>
+            </tr>
+            }
+        </tbody>
+    </table>

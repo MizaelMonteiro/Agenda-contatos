@@ -3,6 +3,7 @@ import { Component, inject } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AgendaService } from '../../services/agenda-service';
 import { Contato, TipoContato } from '../../services/contato';
+import { RouterOutlet } from '@angular/router'; 
 
 
 @Component({

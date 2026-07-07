@@ -4,29 +4,24 @@ import { Contato } from '../../services/contato';
 import { RouterOutlet } from '@angular/router';
 
 @Component({
-  selector: 'app-exibir-contato-component',
+  selector: 'app-exibir-favoritos-component',
   imports: [],
-  templateUrl: './exibir-contato-component.html',
-  styleUrl: './exibir-contato-component.scss',
+  templateUrl: './exibir-favoritos-component.html',
+  styleUrl: './exibir-favoritos-component.scss',
 })
-export class ExibirContatoComponent {
+export class ExibirFavoritosComponent{
   #agendaService = inject(AgendaService);
-  protected readonly contatos: Contato[] = [];
+
   protected readonly favoritos: Contato[] = [];
 
   constructor() {
-    this.contatos = this.#agendaService.obterTodos();
+
     this.favoritos = this.#agendaService.ObterFavoritos();
-    
-    console.log(this.contatos);
-    console.log(this.favoritos);
-    
-  }
-
-  remover(c: Contato){
-    this.#agendaService.remover(c)
+    console.log("Favoritos recebidos", this.favoritos);
 
   }
+
+
   favoritar(c:Contato){
     this.#agendaService.favoritar(c)
   }

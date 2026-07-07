@@ -7,14 +7,15 @@ import { Contato } from './contato';
 })
 export class AgendaService {
   #contatos: Contato[];
+  #favoritos: Contato[];
   constructor(){
     this.#contatos = [];
+    this.#favoritos = [];
   }
   adicionar(contato: Contato): void {
     this.#contatos.push(contato);
-    console.log(this.#contatos.length);
-    console.log(this.#contatos)
-  
+    console.log("favoritos", this.#favoritos)
+
   }
 
   obterTodos(): Contato[] {
@@ -44,5 +45,34 @@ export class AgendaService {
 
     return false;
   }
+
+  favoritar(contato:Contato): void{
+
+    if(this.#favoritos.includes(contato)){
+      alert("O contato já está na lista de favoritos")
+      
+    } else{
+      this.#favoritos.push(contato);
+
+    }
+    
+  
+  }
+  ObterFavoritos(){
+    return this.#favoritos;
+  }
+
+  removerFav(c: Contato): boolean {
+    const indice = this.#favoritos.findIndex(
+      (contato) => contato.email === c.email);
+
+    if (indice !== -1) {
+      this.#favoritos.splice(indice, 1);
+      return true;
+    }
+
+    return false;
+  }
+
 
 }

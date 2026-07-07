@@ -1,6 +1,5 @@
-
-<table class="table  table-striped-rows">
-        <thead>
+<table>
+    <thead>
             <tr>
                 <th>Nome</th>
                 <th>Telefone</th>
@@ -10,8 +9,8 @@
                 <th>Ações</th>
             </tr>
         </thead>
-        <tbody >
-            @for (contato of contatos; track contato){
+        <tbody>
+            @for (contato of favoritos; track contato){
 
             
             <tr>
@@ -21,13 +20,12 @@
                 <td>{{ contato.aniversario }}</td>
                 <td>{{ contato.tipo }}</td>
                 <td>
-                    <button class="btn btn-danger me-2" (click)="remover(contato)" >Remover</button>
-                    <button class="btn btn-warning" (click)="favoritar(contato)">Favoritar</button>
+                    <button class="btn btn-danger me-2" (click)="removerFav(contato)" >Remover fav</button>
+                    
                 </td>
                 
             </tr>
             }
             
         </tbody>
-
-    </table>
+</table>

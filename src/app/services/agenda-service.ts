@@ -12,6 +12,7 @@ export class AgendaService {
     this.#contatos = [];
     this.#favoritos = [];
   }
+  
   adicionar(contato: Contato): void {
     this.#contatos.push(contato);
     console.log("favoritos", this.#favoritos)
@@ -23,6 +24,14 @@ export class AgendaService {
   }
   
   existe(c: Contato): boolean {
+
+    if(this.#contatos.includes(c)){
+      return true
+    }
+    return false;
+
+
+    /*  usando o email como chave:
     let existe: boolean = false;
 
     this.#contatos.forEach((contato) => {
@@ -32,6 +41,7 @@ export class AgendaService {
     });
 
     return existe;
+    */ 
   }
 
   remover(c: Contato): boolean {
